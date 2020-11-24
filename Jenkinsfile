@@ -4,13 +4,13 @@ pipeline {
      version_tag= "${env.BUILD_ID}"
    }
    stages {
-       withCredentials([sshUserPrivateKey(credentialsId: "privweb-key", keyFileVariable: 'keyfile')]) {
           stage('Copy html to web server root') {
                steps {
+                 withCredentials([sshUserPrivateKey(credentialsId: "privweb-key", keyFileVariable: 'keyfile')]) {
                   sh 'scp -i ${keyfile} index.html ubuntu@172.31.45.36:/home/ubuntu/html/'
+                 }
                }
           }
-       }
    }
    post {
       success {
