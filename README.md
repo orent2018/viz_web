@@ -7,9 +7,7 @@ We have a webserver in a private subnet on AWS
 
 - It is accessible only from a public subnet in the same VPC
 
-- It runs an nginx container with a mountable root web page
-
-- We have a jenkins server in the public subnet in the same VPC which 
+- We have a job on a jenkins server in the public subnet in the same VPC which 
 
   is triggered by a webhooks from this github repo.
 
@@ -27,7 +25,7 @@ Access
 
    -  The Client VPN endpoint was associated with the public subnet.
 
-   -  A server certificate was created and 2 client certificates.
+   -  A server certificate was created and 2 client certificates (using easyrsa).
 
    -  All certificates were added to ASM and were used in the creation of the
  
@@ -102,6 +100,10 @@ VPC
    - Which opens port 22 for scp from the jenkins server and port 80 for http to the webserver
 
    - Both are limited to source from within the VPC.
+
+8) One ElasticIP that was associcated with the jenkins EC2 instance
+
+   - 54.228.162.105
 
 EC2
 ---
