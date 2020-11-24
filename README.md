@@ -1,4 +1,4 @@
-VPN access to Private web server
+VPN access to a Private web server
 ***************************
 
 We have a webserver in a private subnet on AWS
