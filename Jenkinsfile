@@ -6,8 +6,8 @@ pipeline {
    stages {
           stage('Copy html to web server root') {
                steps {
-                 withCredentials([SecretFile(credentialsId: "websecret", keyFileVariable: 'keyfile')]) {
-                  sh 'scp -i ${keyfile} index.html ubuntu@172.31.45.36:/home/ubuntu/html/'
+                 withCredentials([File(credentialsId: "websecret", Variable: 'keyfile')]) {
+                  sh 'scp -i \${keyfile} index.html ubuntu@172.31.45.36:/home/ubuntu/html/'
                  }
                }
           }
