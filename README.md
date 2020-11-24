@@ -1,5 +1,5 @@
-Private web page update
-***********************
+VPN access to Private web server
+***************************
 
 We have a webserver in a private subnet on AWS
 
@@ -13,7 +13,7 @@ We have a webserver in a private subnet on AWS
 
   is triggered by a webhooks from this github repo.
 
-- The job updates the root webpage in the webserver with an updated index.html file
+- The job (pipeline) updates the root webpage in the webserver with an updated index.html file
 
 - A rule to redirect traffic from port 80 to 8080 was created on the jenkins server using iptables:
 
@@ -65,11 +65,11 @@ Access
 
      - Browser opens to find the file
 
-     - Choose Open
+     - Choose the client config file and Press Open
 
-     - You will see that the profile was imported.
+     - You will see that the profile was imported
 
-     - You can connect immediately or later.
+     - You can connect immediately or later
 
      - After connecting, access to the web server should be possible using its private ip
 
@@ -99,7 +99,7 @@ VPC
 
 7) One Security group for the private web server that is found in the private subnet
 
-   - Which opens port 22 for ssh from the jenkins server and port 80 for http to the webserver
+   - Which opens port 22 for scp from the jenkins server and port 80 for http to the webserver
 
    - Both are limited to source from within the VPC.
 
