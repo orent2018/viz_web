@@ -15,13 +15,9 @@ pipeline {
    post {
       success {
          sh 'echo "SUCCESS"'
- #        slackSend color: 'good',
- #                  message: "Job ${JOB_NAME} build ${BUILD_NUMBER} has completed successfully"
       }
       failure {
          sh 'echo "FAILURE"'
-#         slackSend color: 'bad',
-#                   message: "Job ${JOB_NAME} build ${BUILD_NUMBER} has Failed!!"
       }
    }
 }
